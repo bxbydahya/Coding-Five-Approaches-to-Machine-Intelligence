@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -33,3 +34,6 @@ predictions = model.predict(test_items)
 print("\nSample Predictions:")
 for item, category in zip(test_items, predictions):
     print(f"{item} -> {category}")
+
+joblib.dump(model, "models/task1_grocery_classifier.pkl")
+print("\nModel saved to models/task1_grocery_classifier.pkl")
